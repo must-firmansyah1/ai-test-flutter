@@ -1,0 +1,364 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R 5 0 R 6 0 R 7 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R >> >> /Contents 8 0 R >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R >> >> /Contents 9 0 R >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R >> >> /Contents 10 0 R >>
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R >> >> /Contents 11 0 R >>
+endobj
+8 0 obj
+<< /Length 2326 >>
+stream
+BT
+/F1 11 Tf
+1 0 0 1 48 789.89 Tm
+(COMPANY POLICY KNOWLEDGE SEED) Tj
+1 0 0 1 48 775.89 Tm
+() Tj
+1 0 0 1 48 761.89 Tm
+() Tj
+1 0 0 1 48 747.89 Tm
+(This document defines the first approved knowledge set for the company policy assistant.) Tj
+1 0 0 1 48 733.89 Tm
+(It is intended to be the source material for future Firestore storage, chunking, and) Tj
+1 0 0 1 48 719.89 Tm
+(vector search retrieval.) Tj
+1 0 0 1 48 705.89 Tm
+() Tj
+1 0 0 1 48 691.89 Tm
+(Purpose) Tj
+1 0 0 1 48 677.89 Tm
+() Tj
+1 0 0 1 48 663.89 Tm
+() Tj
+1 0 0 1 48 649.89 Tm
+(Use this knowledge set to answer policy questions only from approved company rules.) Tj
+1 0 0 1 48 635.89 Tm
+(The assistant must not guess or use outside knowledge when policy mode is active.) Tj
+1 0 0 1 48 621.89 Tm
+() Tj
+1 0 0 1 48 607.89 Tm
+(Source Policy Statements) Tj
+1 0 0 1 48 593.89 Tm
+() Tj
+1 0 0 1 48 579.89 Tm
+() Tj
+1 0 0 1 48 565.89 Tm
+(1. Annual Leave) Tj
+1 0 0 1 48 551.89 Tm
+() Tj
+1 0 0 1 48 537.89 Tm
+() Tj
+1 0 0 1 48 523.89 Tm
+(? Annual leave entitlement is 20 days per calendar year.) Tj
+1 0 0 1 48 509.89 Tm
+(? Annual leave usage must follow the company approval workflow.) Tj
+1 0 0 1 48 495.89 Tm
+() Tj
+1 0 0 1 48 481.89 Tm
+(2. Sick Leave) Tj
+1 0 0 1 48 467.89 Tm
+() Tj
+1 0 0 1 48 453.89 Tm
+() Tj
+1 0 0 1 48 439.89 Tm
+(? Sick leave entitlement is 10 days per calendar year.) Tj
+1 0 0 1 48 425.89 Tm
+(? A medical certificate is required for 3 consecutive sick days or more.) Tj
+1 0 0 1 48 411.89 Tm
+(? The assistant should not invent exceptions that are not written in the policy.) Tj
+1 0 0 1 48 397.89 Tm
+() Tj
+1 0 0 1 48 383.89 Tm
+(3. National Holidays) Tj
+1 0 0 1 48 369.89 Tm
+() Tj
+1 0 0 1 48 355.89 Tm
+() Tj
+1 0 0 1 48 341.89 Tm
+(? Company holidays follow the official national holiday calendar.) Tj
+1 0 0 1 48 327.89 Tm
+(? If a day is listed as a national holiday, it is treated as a company holiday unless a) Tj
+1 0 0 1 48 313.89 Tm
+(separate notice says otherwise.) Tj
+1 0 0 1 48 299.89 Tm
+() Tj
+1 0 0 1 48 285.89 Tm
+(4. Reimbursement) Tj
+1 0 0 1 48 271.89 Tm
+() Tj
+1 0 0 1 48 257.89 Tm
+() Tj
+1 0 0 1 48 243.89 Tm
+(? Reimbursement requests must be submitted within 14 days after the expense date.) Tj
+1 0 0 1 48 229.89 Tm
+(? Valid receipts must be attached to the reimbursement request.) Tj
+1 0 0 1 48 215.89 Tm
+(? Late submissions require manual review.) Tj
+ET
+endstream
+endobj
+9 0 obj
+<< /Length 2514 >>
+stream
+BT
+/F1 11 Tf
+1 0 0 1 48 789.89 Tm
+() Tj
+1 0 0 1 48 775.89 Tm
+(5. Remote Work) Tj
+1 0 0 1 48 761.89 Tm
+() Tj
+1 0 0 1 48 747.89 Tm
+() Tj
+1 0 0 1 48 733.89 Tm
+(? Remote work requests must be approved by the direct manager before the workday starts.) Tj
+1 0 0 1 48 719.89 Tm
+(? Remote work approval is required even if the employee has used remote work before.) Tj
+1 0 0 1 48 705.89 Tm
+() Tj
+1 0 0 1 48 691.89 Tm
+(Chunk-Ready Knowledge Records) Tj
+1 0 0 1 48 677.89 Tm
+() Tj
+1 0 0 1 48 663.89 Tm
+() Tj
+1 0 0 1 48 649.89 Tm
+(These records are formatted so they can later be moved into Firestore as document chunks.) Tj
+1 0 0 1 48 635.89 Tm
+() Tj
+1 0 0 1 48 621.89 Tm
+(id: annual_leave) Tj
+1 0 0 1 48 607.89 Tm
+(title: Annual Leave) Tj
+1 0 0 1 48 593.89 Tm
+(text: Annual leave entitlement is 20 days per calendar year. Annual leave usage must follow) Tj
+1 0 0 1 48 579.89 Tm
+(the company approval workflow.) Tj
+1 0 0 1 48 565.89 Tm
+(tags: leave, annual, vacation, approval) Tj
+1 0 0 1 48 551.89 Tm
+(source: company_policy_handbook) Tj
+1 0 0 1 48 537.89 Tm
+(section: leave_policy) Tj
+1 0 0 1 48 523.89 Tm
+() Tj
+1 0 0 1 48 509.89 Tm
+(id: sick_leave) Tj
+1 0 0 1 48 495.89 Tm
+(title: Sick Leave) Tj
+1 0 0 1 48 481.89 Tm
+(text: Sick leave entitlement is 10 days per calendar year. A medical certificate is required) Tj
+1 0 0 1 48 467.89 Tm
+(for 3 consecutive sick days or more.) Tj
+1 0 0 1 48 453.89 Tm
+(tags: leave, sick, medical, certificate, doctor) Tj
+1 0 0 1 48 439.89 Tm
+(source: company_policy_handbook) Tj
+1 0 0 1 48 425.89 Tm
+(section: leave_policy) Tj
+1 0 0 1 48 411.89 Tm
+() Tj
+1 0 0 1 48 397.89 Tm
+(id: national_holidays) Tj
+1 0 0 1 48 383.89 Tm
+(title: National Holidays) Tj
+1 0 0 1 48 369.89 Tm
+(text: Company holidays follow the official national holiday calendar. If a day is listed as) Tj
+1 0 0 1 48 355.89 Tm
+(a national holiday, it is treated as a company holiday unless a separate notice says) Tj
+1 0 0 1 48 341.89 Tm
+(otherwise.) Tj
+1 0 0 1 48 327.89 Tm
+(tags: holiday, calendar, national, company holiday) Tj
+1 0 0 1 48 313.89 Tm
+(source: company_policy_handbook) Tj
+1 0 0 1 48 299.89 Tm
+(section: holiday_policy) Tj
+1 0 0 1 48 285.89 Tm
+() Tj
+1 0 0 1 48 271.89 Tm
+(id: reimbursement) Tj
+1 0 0 1 48 257.89 Tm
+(title: Reimbursement) Tj
+1 0 0 1 48 243.89 Tm
+(text: Reimbursement requests must be submitted within 14 days after the expense date. Valid) Tj
+1 0 0 1 48 229.89 Tm
+(receipts must be attached to the reimbursement request. Late submissions require manual) Tj
+1 0 0 1 48 215.89 Tm
+(review.) Tj
+ET
+endstream
+endobj
+10 0 obj
+<< /Length 2269 >>
+stream
+BT
+/F1 11 Tf
+1 0 0 1 48 789.89 Tm
+(tags: reimbursement, expense, receipt, finance) Tj
+1 0 0 1 48 775.89 Tm
+(source: company_policy_handbook) Tj
+1 0 0 1 48 761.89 Tm
+(section: reimbursement_policy) Tj
+1 0 0 1 48 747.89 Tm
+() Tj
+1 0 0 1 48 733.89 Tm
+(id: remote_work) Tj
+1 0 0 1 48 719.89 Tm
+(title: Remote Work) Tj
+1 0 0 1 48 705.89 Tm
+(text: Remote work requests must be approved by the direct manager before the workday starts.) Tj
+1 0 0 1 48 691.89 Tm
+(Remote work approval is required even if the employee has used remote work before.) Tj
+1 0 0 1 48 677.89 Tm
+(tags: remote work, wfh, manager, approval) Tj
+1 0 0 1 48 663.89 Tm
+(source: company_policy_handbook) Tj
+1 0 0 1 48 649.89 Tm
+(section: remote_work_policy) Tj
+1 0 0 1 48 635.89 Tm
+() Tj
+1 0 0 1 48 621.89 Tm
+(Expected Answer Rules) Tj
+1 0 0 1 48 607.89 Tm
+() Tj
+1 0 0 1 48 593.89 Tm
+() Tj
+1 0 0 1 48 579.89 Tm
+(The assistant should answer only from the policy text above.) Tj
+1 0 0 1 48 565.89 Tm
+() Tj
+1 0 0 1 48 551.89 Tm
+(Examples:) Tj
+1 0 0 1 48 537.89 Tm
+() Tj
+1 0 0 1 48 523.89 Tm
+(? If the user asks, "I have been sick for 4 days. Do I need a doctor's note?") Tj
+1 0 0 1 48 509.89 Tm
+(  - The correct answer is yes, because the policy requires a medical certificate for 3) Tj
+1 0 0 1 48 495.89 Tm
+(consecutive sick days or more.) Tj
+1 0 0 1 48 481.89 Tm
+() Tj
+1 0 0 1 48 467.89 Tm
+(? If the user asks, "How many annual leave days do I get?") Tj
+1 0 0 1 48 453.89 Tm
+(  - The correct answer is 20 days per calendar year.) Tj
+1 0 0 1 48 439.89 Tm
+() Tj
+1 0 0 1 48 425.89 Tm
+(? If the user asks, "Can I submit reimbursement after 20 days?") Tj
+1 0 0 1 48 411.89 Tm
+(  - The correct answer is that the request is late and requires manual review.) Tj
+1 0 0 1 48 397.89 Tm
+() Tj
+1 0 0 1 48 383.89 Tm
+(Firestore Usage Plan) Tj
+1 0 0 1 48 369.89 Tm
+() Tj
+1 0 0 1 48 355.89 Tm
+() Tj
+1 0 0 1 48 341.89 Tm
+(When this knowledge set moves into Firestore, each record should store:) Tj
+1 0 0 1 48 327.89 Tm
+() Tj
+1 0 0 1 48 313.89 Tm
+(? `id`) Tj
+1 0 0 1 48 299.89 Tm
+(? `title`) Tj
+1 0 0 1 48 285.89 Tm
+(? `text`) Tj
+1 0 0 1 48 271.89 Tm
+(? `tags`) Tj
+1 0 0 1 48 257.89 Tm
+(? `source`) Tj
+1 0 0 1 48 243.89 Tm
+(? `section`) Tj
+1 0 0 1 48 229.89 Tm
+(? `version`) Tj
+1 0 0 1 48 215.89 Tm
+(? `embedding_vector`) Tj
+ET
+endstream
+endobj
+11 0 obj
+<< /Length 1117 >>
+stream
+BT
+/F1 11 Tf
+1 0 0 1 48 789.89 Tm
+(? `created_at`) Tj
+1 0 0 1 48 775.89 Tm
+(? `updated_at`) Tj
+1 0 0 1 48 761.89 Tm
+() Tj
+1 0 0 1 48 747.89 Tm
+(The app should:) Tj
+1 0 0 1 48 733.89 Tm
+() Tj
+1 0 0 1 48 719.89 Tm
+(1. chunk the source policy into records like the ones above,) Tj
+1 0 0 1 48 705.89 Tm
+(2. generate embeddings for each chunk,) Tj
+1 0 0 1 48 691.89 Tm
+(3. store the chunk in Firestore,) Tj
+1 0 0 1 48 677.89 Tm
+(4. retrieve the most relevant chunks by query,) Tj
+1 0 0 1 48 663.89 Tm
+(5. pass only retrieved chunks into the model prompt.) Tj
+1 0 0 1 48 649.89 Tm
+() Tj
+1 0 0 1 48 635.89 Tm
+(Notes For Future Expansion) Tj
+1 0 0 1 48 621.89 Tm
+() Tj
+1 0 0 1 48 607.89 Tm
+() Tj
+1 0 0 1 48 593.89 Tm
+(? Keep each policy rule short and specific.) Tj
+1 0 0 1 48 579.89 Tm
+(? Do not mix multiple policy domains in one chunk unless they are tightly related.) Tj
+1 0 0 1 48 565.89 Tm
+(? Add a new chunk when a policy section changes, instead of silently overwriting the rule) Tj
+1 0 0 1 48 551.89 Tm
+(text.) Tj
+1 0 0 1 48 537.89 Tm
+(? If a policy is deleted, keep the old version archived for traceability.) Tj
+ET
+endstream
+endobj
+xref
+0 12
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000139 00000 n 
+0000000209 00000 n 
+0000000341 00000 n 
+0000000473 00000 n 
+0000000606 00000 n 
+0000000739 00000 n 
+0000003117 00000 n 
+0000005683 00000 n 
+0000008005 00000 n 
+trailer
+<< /Size 12 /Root 1 0 R >>
+startxref
+9175
+%%EOF
