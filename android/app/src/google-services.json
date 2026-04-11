@@ -1,0 +1,181 @@
+{
+  "project_info": {
+    "project_number": "315216426936",
+    "project_id": "msq-wallet-b0374",
+    "storage_bucket": "msq-wallet-b0374.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:781d39bd7a0690ca2a814d",
+        "android_client_info": {
+          "package_name": "com.example.ai_explore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:669c2cfade997b0e2a814d",
+        "android_client_info": {
+          "package_name": "com.msquare.market.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:e067a8272fec9ea72a814d",
+        "android_client_info": {
+          "package_name": "com.msquare.market.app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:6ef77e454d7d393a2a814d",
+        "android_client_info": {
+          "package_name": "com.msquare.market.app.stg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:3448fcca0f9d5d462a814d",
+        "android_client_info": {
+          "package_name": "io.supertrust.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:5436238588a4d5a72a814d",
+        "android_client_info": {
+          "package_name": "io.supertrust.app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:668623619989c30e2a814d",
+        "android_client_info": {
+          "package_name": "io.supertrust.app.stg"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:77db0d1fe7958fa42a814d",
+        "android_client_info": {
+          "package_name": "io.zeroplus.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:315216426936:android:2b44a3fe1bef01292a814d",
+        "android_client_info": {
+          "package_name": "io.zeroplus.app.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQm3MtIOy4lCliJIcqFDjxkwAz3yYvaIg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
