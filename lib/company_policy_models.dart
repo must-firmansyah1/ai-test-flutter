@@ -25,12 +25,44 @@ class KnowledgeChunk {
     required this.title,
     required this.text,
     this.tags = const <String>[],
+    this.source = 'company_policy_handbook',
+    this.section,
+    this.version = 1,
   });
 
   final String id;
   final String title;
   final String text;
   final List<String> tags;
+  final String source;
+  final String? section;
+  final int version;
+
+  Map<String, Object?> toMap() {
+    return {
+      'id': id,
+      'title': title,
+      'text': text,
+      'tags': tags,
+      'source': source,
+      'section': section,
+      'version': version,
+    };
+  }
+
+  factory KnowledgeChunk.fromMap(Map<String, Object?> map) {
+    return KnowledgeChunk(
+      id: map['id']?.toString() ?? '',
+      title: map['title']?.toString() ?? '',
+      text: map['text']?.toString() ?? '',
+      tags: (map['tags'] as List<dynamic>? ?? const <dynamic>[])
+          .map((tag) => tag.toString())
+          .toList(),
+      source: map['source']?.toString() ?? 'company_policy_handbook',
+      section: map['section']?.toString(),
+      version: (map['version'] as num?)?.toInt() ?? 1,
+    );
+  }
 }
 
 class AssistantMessage {
@@ -66,6 +98,7 @@ class LeaveRequest {
     required this.department,
     required this.days,
     required this.reason,
+    
     required this.createdAt,
   });
 

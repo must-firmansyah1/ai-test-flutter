@@ -29,11 +29,14 @@ class CompanyPolicyController extends ChangeNotifier {
   final List<AssistantMessage> assistantMessages = [];
   final List<PendingAttachment> attachments = [];
   final List<LeaveRequest> leaveRequests = [];
+  final List<KnowledgeChunk> knowledgeChunks = [];
 
   AssistantMode assistantMode = AssistantMode.policy;
   int currentTabIndex = 0;
   bool assistantOpen = false;
   bool isSending = false;
+  bool isLoadingKnowledge = true;
+  String? knowledgeLoadError;
   List<KnowledgeChunk> lastRetrievedChunks = [];
 
   List<FunctionDeclaration> get toolDeclarations => [
@@ -135,6 +138,27 @@ class CompanyPolicyController extends ChangeNotifier {
     notifyListeners();
   }
 
+  Future<void> initializeKnowledge() async {
+    isLoadingKnowledge = true;
+    knowledgeLoadError = null;
+    notifyListeners();
+
+    try {
+      await knowledgeRepository.ensureSeeded();
+      knowledgeChunks
+        ..clear()
+        ..addAll(await knowledgeRepository.allChunks());
+    } catch (error) {
+      knowledgeLoadError = error.toString();
+      knowledgeChunks
+        ..clear()
+        ..addAll(defaultPolicyChunks);
+    } finally {
+      isLoadingKnowledge = false;
+      notifyListeners();
+    }
+  }
+
   void prefillLeaveForm({
     String? name,
     String? department,
@@ -194,7 +218,7 @@ class CompanyPolicyController extends ChangeNotifier {
     if (normalized.isEmpty) return;
 
     knowledgeQueryController.text = normalized;
-    lastRetrievedChunks = knowledgeRepository.search(normalized);
+    lastRetrievedChunks = await knowledgeRepository.search(normalized);
     openTab(3);
     notifyListeners();
   }
@@ -284,16 +308,16 @@ You may use the uploaded attachments if they are relevant.
           attachments: attachments,
         );
       case AssistantMode.policy:
-        final policyContext = knowledgeRepository.policyContext();
+        final policyContext = await knowledgeRepository.policyContext();
         return PolicyAssistantService.instance.sendPolicyPrompt(
           prompt: prompt,
           policyContext: policyContext,
           attachments: attachments,
         );
       case AssistantMode.knowledge:
-        lastRetrievedChunks = knowledgeRepository.search(prompt);
+        lastRetrievedChunks = await knowledgeRepository.search(prompt);
         final contextText = lastRetrievedChunks.isEmpty
-            ? knowledgeRepository.policyContext()
+            ? await knowledgeRepository.policyContext()
             : lastRetrievedChunks
                 .map((chunk) => '[${chunk.title}] ${chunk.text}')
                 .join('\n\n');
@@ -312,6 +336,7 @@ You may use the uploaded attachments if they are relevant.
   }
 
   Future<void> _handleFunctionCall(FunctionCall call) async {
+    toggleAssistant();
     switch (call.name) {
       case 'open_dashboard':
         openTab(0);

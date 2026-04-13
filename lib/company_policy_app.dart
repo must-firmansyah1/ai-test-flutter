@@ -1,8 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'company_policy_controller.dart';
 import 'company_policy_knowledge.dart';
 import 'company_policy_models.dart';
+import 'firestore_policy_knowledge_repository.dart';
 
 class CompanyPolicyApp extends StatefulWidget {
   const CompanyPolicyApp({super.key});
@@ -18,8 +22,12 @@ class _CompanyPolicyAppState extends State<CompanyPolicyApp> {
   void initState() {
     super.initState();
     controller = CompanyPolicyController(
-      knowledgeRepository: InMemoryPolicyKnowledgeRepository(),
+      knowledgeRepository: HybridPolicyKnowledgeRepository(
+        remote: FirestorePolicyKnowledgeRepository(),
+        fallback: InMemoryPolicyKnowledgeRepository(),
+      ),
     );
+    unawaited(controller.initializeKnowledge());
   }
 
   @override
@@ -42,7 +50,22 @@ class _CompanyPolicyAppState extends State<CompanyPolicyApp> {
           ),
           useMaterial3: true,
         ),
-        home: const CompanyPolicyShell(),
+        home: PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, result) {
+            if(controller.assistantOpen) {
+              controller.toggleAssistant();
+              return;
+            }
+
+            if(controller.currentTabIndex != 0){
+              controller.openTab(0);
+              return;
+            }
+            SystemNavigator.pop();
+          },
+          child: const CompanyPolicyShell()
+        ),
       ),
     );
   }
@@ -86,8 +109,8 @@ class CompanyPolicyShell extends StatelessWidget {
                 ],
               ),
               Positioned(
-                right: 16,
-                bottom: 92,
+                right: kFloatingActionButtonMargin,
+                bottom: kFloatingActionButtonMargin,
                 child: CompanyPolicyAssistantLauncher(),
               ),
               if (controller.assistantOpen)
@@ -604,7 +627,7 @@ class PolicyPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = CompanyPolicyScope.of(context);
     final theme = Theme.of(context);
-    final chunks = controller.knowledgeRepository.allChunks();
+    final chunks = controller.knowledgeChunks;
 
     return SafeArea(
       child: ListView(
@@ -622,45 +645,55 @@ class PolicyPage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
-          for (final chunk in chunks) ...[
-            Card(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      chunk.title,
-                      style: theme.textTheme.titleMedium?.copyWith(
-                        fontWeight: FontWeight.w700,
+          if (controller.isLoadingKnowledge)
+            const Center(child: CircularProgressIndicator())
+          else if (controller.knowledgeLoadError != null)
+            Text(
+              'Failed to load knowledge from Firestore. Using fallback knowledge locally.',
+              style: theme.textTheme.bodyMedium?.copyWith(
+                color: theme.colorScheme.error,
+              ),
+            )
+          else
+            for (final chunk in chunks) ...[
+              Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        chunk.title,
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.w700,
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 8),
-                    Text(chunk.text),
-                    if (chunk.tags.isNotEmpty) ...[
-                      const SizedBox(height: 10),
-                      Wrap(
-                        spacing: 8,
-                        runSpacing: 8,
-                        children: [
-                          for (final tag in chunk.tags)
-                            Chip(label: Text(tag)),
-                        ],
-                      ),
+                      const SizedBox(height: 8),
+                      Text(chunk.text),
+                      if (chunk.tags.isNotEmpty) ...[
+                        const SizedBox(height: 10),
+                        Wrap(
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            for (final tag in chunk.tags)
+                              Chip(label: Text(tag)),
+                          ],
+                        ),
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 12),
-          ],
+              const SizedBox(height: 12),
+            ],
           const SizedBox(height: 12),
           FilledButton.icon(
             onPressed: () {
               controller.openAssistant(true);
               controller.setMode(AssistantMode.policy);
               controller.assistantPromptController.text =
-                  "I have been sick for 4 days. Do I need a doctor's note?'";
+                  "I have been sick for 4 days. Do I need a doctor's note?";
             },
             icon: const Icon(Icons.question_answer),
             label: const Text('Ask policy question'),
@@ -789,7 +822,7 @@ class KnowledgePage extends StatelessWidget {
     final theme = Theme.of(context);
     final chunks = controller.lastRetrievedChunks.isNotEmpty
         ? controller.lastRetrievedChunks
-        : controller.knowledgeRepository.allChunks();
+        : controller.knowledgeChunks;
 
     return SafeArea(
       child: ListView(
@@ -807,6 +840,9 @@ class KnowledgePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
+          if (controller.isLoadingKnowledge)
+            const Center(child: CircularProgressIndicator())
+          else ...[
           TextField(
             controller: controller.knowledgeQueryController,
             decoration: const InputDecoration(
@@ -849,6 +885,7 @@ class KnowledgePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 12),
+          ],
           ],
         ],
       ),

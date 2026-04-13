@@ -163,6 +163,30 @@ Implementation stance for now:
 - Keep the code structure ready for Firestore vector search later.
 - Do not bind the product to a vector backend too early.
 
+### Firestore Source of Truth
+
+The app now treats Firestore as the primary knowledge source when available.
+
+Recommended structure:
+
+- Collection root: `knowledge_bases`
+- Knowledge base document: `company_policy`
+- Chunks subcollection: `chunks`
+
+Example path:
+
+- `knowledge_bases/company_policy/chunks/annual_leave`
+- `knowledge_bases/company_policy/chunks/sick_leave`
+- `knowledge_bases/company_policy/chunks/reimbursement`
+
+Current implementation notes:
+
+- The app seeds Firestore with the default policy chunks when the collection is empty.
+- The app loads knowledge from Firestore into an in-memory cache.
+- If Firestore is unavailable, the app falls back to local knowledge so the demo stays usable.
+- The current Flutter client still performs local retrieval over the loaded chunks.
+- True Firestore vector search will be added through a backend or server-side layer because the Flutter client library does not expose the vector query API yet.
+
 ### 4. Function Calling
 
 Goal:
