@@ -1,8 +1,7 @@
+import 'package:ai_explore/firestore_policy_knowledge_repository.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_ai/firebase_ai.dart';
 import 'package:flutter/material.dart';
-
-import 'company_policy_knowledge.dart';
 import 'company_policy_models.dart';
 import 'policy_assistant_service.dart';
 
@@ -144,15 +143,12 @@ class CompanyPolicyController extends ChangeNotifier {
     notifyListeners();
 
     try {
-      await knowledgeRepository.ensureSeeded();
       knowledgeChunks
         ..clear()
         ..addAll(await knowledgeRepository.allChunks());
     } catch (error) {
       knowledgeLoadError = error.toString();
-      knowledgeChunks
-        ..clear()
-        ..addAll(defaultPolicyChunks);
+      knowledgeChunks.clear();
     } finally {
       isLoadingKnowledge = false;
       notifyListeners();

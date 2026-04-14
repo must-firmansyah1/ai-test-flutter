@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'company_policy_controller.dart';
-import 'company_policy_knowledge.dart';
 import 'company_policy_models.dart';
 import 'firestore_policy_knowledge_repository.dart';
 
@@ -22,10 +21,7 @@ class _CompanyPolicyAppState extends State<CompanyPolicyApp> {
   void initState() {
     super.initState();
     controller = CompanyPolicyController(
-      knowledgeRepository: HybridPolicyKnowledgeRepository(
-        remote: FirestorePolicyKnowledgeRepository(),
-        fallback: InMemoryPolicyKnowledgeRepository(),
-      ),
+      knowledgeRepository: PolicyKnowledgeRepository(),
     );
     unawaited(controller.initializeKnowledge());
   }
