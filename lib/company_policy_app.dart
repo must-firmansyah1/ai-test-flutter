@@ -610,6 +610,18 @@ class DashboardPage extends StatelessWidget {
                   'Open the leave form and prefill name Rina, department HR, days 4, reason sick leave.';
             },
           ),
+          _DemoTile(
+            title: 'SUT App Agent',
+            subtitle:
+                'Open the existing assistant with airdrop tool calls and a simulated API delay.',
+            icon: Icons.payments_outlined,
+            onTap: () {
+              controller.openAssistant(true);
+              controller.setMode(AssistantMode.tools);
+              controller.assistantPromptController.text =
+                  'How many airdrop points I have';
+            },
+          ),
         ],
       ),
     );

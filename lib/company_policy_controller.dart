@@ -83,6 +83,16 @@ class CompanyPolicyController extends ChangeNotifier {
           },
           optionalParameters: const ['query'],
         ),
+        FunctionDeclaration(
+          'get_airdrop_points',
+          'Return the current airdrop point total.',
+          parameters: const {},
+        ),
+        FunctionDeclaration(
+          'get_remaining_balance',
+          'Return the locked-up amount and remaining balance.',
+          parameters: const {},
+        ),
       ];
 
   @override
@@ -332,33 +342,37 @@ You may use the uploaded attachments if they are relevant.
   }
 
   Future<void> _handleFunctionCall(FunctionCall call) async {
-    toggleAssistant();
     switch (call.name) {
       case 'open_dashboard':
+        toggleAssistant();
         openTab(0);
         assistantMessages.add(
           AssistantMessage.assistant('Dashboard tab opened.'),
         );
         return;
       case 'open_policy_page':
+        toggleAssistant();
         openTab(1);
         assistantMessages.add(
           AssistantMessage.assistant('Policy tab opened.'),
         );
         return;
       case 'open_form_page':
+        toggleAssistant();      
         openTab(2);
         assistantMessages.add(
           AssistantMessage.assistant('Leave form tab opened.'),
         );
         return;
       case 'open_knowledge_page':
+        toggleAssistant();
         openTab(3);
         assistantMessages.add(
           AssistantMessage.assistant('Knowledge tab opened.'),
         );
         return;
       case 'fill_leave_form':
+        toggleAssistant();
         prefillLeaveForm(
           name: call.args['name']?.toString(),
           department: call.args['department']?.toString(),
@@ -372,12 +386,32 @@ You may use the uploaded attachments if they are relevant.
         );
         return;
       case 'submit_leave_form':
+        toggleAssistant();
         await submitLeaveForm();
         return;
       case 'search_knowledge':
+        toggleAssistant();
         await searchKnowledge(call.args['query']?.toString() ?? '');
         assistantMessages.add(
           AssistantMessage.assistant('Knowledge search completed by AI.'),
+        );
+        return;
+      case 'get_airdrop_points':
+        debugPrint('Simulating retrieval of airdrop points...');
+        await Future<void>.delayed(const Duration(seconds: 10));
+        assistantMessages.add(
+          AssistantMessage.assistant(
+            'You currently have 12,840 airdrop points.',
+          ),
+        );
+        return;
+      case 'get_remaining_balance':
+        debugPrint('Simulating retrieval of remaining balance...');
+        await Future<void>.delayed(const Duration(seconds: 10));
+        assistantMessages.add(
+          AssistantMessage.assistant(
+            'Locked-up balance: 2,500 points. Remaining balance: 7,450 points.',
+          ),
         );
         return;
       default:
